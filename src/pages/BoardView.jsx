@@ -1,5 +1,5 @@
 import React from "react";
-import { DragDropContext } from "react-beautiful-dnd";
+import { DragDropContext } from "@hello-pangea/dnd";
 import { useTask } from "../context/TaskContext.jsx";
 import TaskModal from "../components/TaskModal.jsx";
 import TaskColumn from "../components/TaskColoumn.jsx";
