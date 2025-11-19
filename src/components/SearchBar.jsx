@@ -25,23 +25,23 @@ export default function SearchBar() {
       setSearch(localQ);
       if (localQ.trim() === "") {
         if (selectedBoard?._id) {
-          await searchTasksBackend({
+          await searchTasks({
             q: "",
             priority: priorityFilter,
             boardId: selectedBoard._id,
           });
         } else {
-          await searchBoardsBackend("");
+          await searchBoards("");
         }
       } else {
         if (selectedBoard?._id) {
-          await searchTasksBackend({
+          await searchTasks({
             q: localQ,
             priority: priorityFilter,
             boardId: selectedBoard._id,
           });
         } else {
-          await searchBoardsBackend(localQ);
+          await searchBoards(localQ);
         }
       }
     }, 350);

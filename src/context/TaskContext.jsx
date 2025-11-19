@@ -157,7 +157,7 @@ export const TaskProvider = ({ children }) => {
       if (status) params.append("status", status);
       if (boardId) params.append("boardId", boardId);
       const res = await axios.get(
-        `${API_BASE}/task/searchTask?${params.toString()}`
+        `${API_BASE}/searchTask?${params.toString()}`
       );
       const tasks = res.data.tasks ?? [];
       const grouped = { pending: [], "in-progress": [], done: [] };
@@ -178,10 +178,9 @@ export const TaskProvider = ({ children }) => {
     try {
       const params = new URLSearchParams();
       if (q) params.append("q", q);
-      const res = await axios.get(`${API_BASE}/task/searchBoard?${params.toString()}`);
+      const res = await axios.get(`${API_BASE}/searchBoard?${params.toString()}`);
       const found = res.data.boards ?? [];
       setBoards(found);
-      // auto-select first result if exists
       if (found.length) setSelectedBoard(found[0]);
       return found;
     } catch (e) {
